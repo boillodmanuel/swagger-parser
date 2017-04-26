@@ -20,9 +20,9 @@ public class SwaggerParserTest {
         System.out.println("1:" + getClass().getResource("/number_attributes.yaml").toURI());
         System.out.println("1:" + new File(getClass().getResource("/number_attributes.yaml").toURI()).getAbsolutePath());
         System.out.println("1:" + new File(getClass().getResource("/number_attributes.yaml").toURI()).exists());
-        
+
         SwaggerParser parser = new SwaggerParser();
-        Swagger swagger = parser.read(getClass().getResource("/number_attributes.yaml").getFile());
+        Swagger swagger = parser.read(new File(getClass().getResource("/number_attributes.yaml").toURI()).getAbsolutePath());
 
         ModelImpl numberType = (ModelImpl)swagger.getDefinitions().get("NumberType");
         assertNotNull(numberType);
